@@ -16,6 +16,8 @@ const ligaturesCheckbox = document.getElementById('ligatures-checkbox');
 const wrapCheckbox = document.getElementById('wrap-checkbox');
 const wrapWidthInput = document.getElementById('wrap-width-input');
 
+const accessibilityCheckbox = document.getElementById('accessibility-checkbox');
+
 const output = document.getElementById('output');
 const outputSvg = document.querySelector('#output svg');
 const outputCode = document.getElementById('output-code');
@@ -36,6 +38,7 @@ kerningCheckbox.checked = localStorage.getItem('kerning') || 'true' === 'true';
 ligaturesCheckbox.checked = localStorage.getItem('ligatures') || 'true' === 'true';
 wrapCheckbox.checked = localStorage.getItem('wrap') || 'false' === 'true';
 wrapWidthInput.value = localStorage.getItem('wrapWidth') || 50;
+accessibilityCheckbox.checked = localStorage.getItem('accessibility') || 'true' === 'true';
 
 const showSource = localStorage.getItem('showSource') || 'false' === 'true';
 showSourceCode(showSource);
@@ -271,6 +274,14 @@ if (wrapWidthInput) {
     });
 }
 
+if (accessibilityCheckbox) {
+    accessibilityCheckbox.addEventListener('change', () => {
+        //console.log('Accessibility checkbox changed:', accessibilityCheckbox.checked);
+        localStorage.setItem('accessibility', accessibilityCheckbox.checked);
+        updateSVG();
+    });
+}
+
 // Handle SVG Updates
 
 async function updateSVG() {
@@ -281,6 +292,7 @@ async function updateSVG() {
     const ligatures = ligaturesCheckbox.checked;
     const wrap = wrapCheckbox.checked;
     let wrapWidth = parseInt(wrapWidthInput.value, 10) || 1000;
+    const accessibility = accessibilityCheckbox.checked;
 
     if (wrapWidth < 1 || wrapWidth > 1000) {
         wrapWidth = 1000; // Default to a large width if invalid
@@ -379,12 +391,30 @@ async function updateSVG() {
         paths.push(path);
     });
 
+    // Handle accessibility title
+    const id = `SvgTitle-${crypto.randomUUID()}`;
+    if (accessibility) {
+        outputSvg.innerHTML = `<title id="${id}">${text}</title>`;
+    }
+    else {
+        outputSvg.innerHTML = '';
+    }
+
     // Add the paths to the SVG output
-    outputSvg.innerHTML = paths.map(path => path.toSVG()).join('');
+    outputSvg.innerHTML += paths.map(path => path.toSVG()).join('');
     outputSvg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
     outputSvg.setAttribute('viewBox', `${minX} ${minY} ${maxX - minX} ${maxY - minY}`);
     outputSvg.setAttribute('width', maxX - minX);
     outputSvg.setAttribute('height', maxY - minY);
+
+    // Handle aria labelledby for accessibility
+    // Doing this after other attributes to ensure consistent order
+    if (accessibility) {
+        outputSvg.setAttribute('aria-labelledby', id);
+    }
+    else {
+        outputSvg.removeAttribute('aria-labelledby');
+    }
 
     // Update the output code
     outputCode.textContent = outputSvg.outerHTML;
