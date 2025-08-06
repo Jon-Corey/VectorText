@@ -143,6 +143,13 @@ a:hover {
     color: var(--green);
 }
 
+.svg-icon {
+    height: 1rem;
+    width: auto;
+    fill: currentColor;
+    vertical-align: -0.125em;
+}
+
 /* Buttons */
 
 button, .button {
@@ -305,6 +312,7 @@ header {
     border: var(--border);
     border-radius: var(--border-radius);
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 0.5rem;
 }
@@ -313,6 +321,7 @@ header h1 {
     margin-top: 0;
     margin-bottom: 0;
     margin-right: auto;
+    text-align: center;
     font-size: 1.5rem;
 }
 
@@ -322,6 +331,12 @@ header h1 {
 
 #theme-toggle .icon-light {
     display: var(--dark-only-display);
+}
+
+.header-button-group {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
 }
 
 /* Footer */
@@ -425,7 +440,16 @@ pre[class*="language-"] *::selection {
 }
 
 .card p {
-    margin: 0;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.card p:first-of-type {
+    margin-top: 0;
+}
+
+.card p:last-of-type {
+    margin-bottom: 0;
 }
 
 /* Tooltips */
@@ -485,5 +509,15 @@ pre[class*="language-"] *::selection {
     .forms .form-container {
         flex: 1 1 100%;
         min-width: unset;
+    }
+}
+
+@media (max-width: 425px) {
+    header {
+        flex-direction: column;
+    }
+
+    header h1 {
+        margin-right: unset;
     }
 }
