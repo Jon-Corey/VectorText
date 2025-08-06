@@ -36,3 +36,4 @@ This site is a simple static site with HTML, CSS, and JS. There is no additional
 - Font parsing by [opentype.js](https://opentype.js.org/).
 - Icons by [Bootstrap Icons](https://icons.getbootstrap.com/).
 - Searchable dropdowns by [Slim Select](https://slimselectjs.com/).
+- Syntax highlighting by [Prism](https://prismjs.com/).
