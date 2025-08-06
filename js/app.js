@@ -302,6 +302,7 @@ async function updateSVG() {
 
         outputSvg.innerHTML = '';
         outputCode.textContent = '';
+        Prism.highlightAll();
         return;
     }
     downloadButton.disabled = false;
@@ -387,6 +388,7 @@ async function updateSVG() {
 
     // Update the output code
     outputCode.textContent = outputSvg.outerHTML;
+    Prism.highlightAll();
 }
 
 // Handle Download Button

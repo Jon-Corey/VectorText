@@ -22,6 +22,10 @@
     --secondary-color: #ff355d;
     --secondary-color-alt: #c33f8d;
 
+    --theme-color-1: #5C7CFF;
+    --theme-color-2: #FF5FA3;
+    --theme-color-3: #B0B8FF;
+
     --accent-color: var(--secondary-color);
     --accent-color-alt: var(--secondary-color-alt);
 
@@ -61,6 +65,10 @@
     --font-color: #121212;
     --secondary-font-color: #222222;
     --tertiary-font-color: #000000;
+
+    --theme-color-1: #2A3DBB;
+    --theme-color-2: #B0306F;
+    --theme-color-3: #5A63D8;
 
     --accent-color: var(--primary-color);
     --accent-color-alt: var(--primary-color-alt);
@@ -370,6 +378,35 @@ footer hr {
 
 #code-output-container.hidden {
     display: none;
+}
+
+/* Code (Prism) */
+
+code[class*="language-"],
+pre[class*="language-"],
+.token.tag > .token.punctuation,
+.token.attr-value > .token.punctuation,
+.token.attr-value > .token.punctuation.attr-equals {
+    color: var(--font-color);
+}
+
+code[class*="language-"]::selection,
+code[class*="language-"] *::selection,
+pre[class*="language-"] *::selection {
+    background: var(--button-color);
+    color: inherit;
+}
+
+.token.tag {
+    color: var(--theme-color-1);
+}
+
+.token.attr-name {
+    color: var(--theme-color-2);
+}
+
+.token.attr-value {
+    color: var(--theme-color-3);
 }
 
 /* Cards */
