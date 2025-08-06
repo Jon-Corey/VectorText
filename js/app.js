@@ -390,6 +390,8 @@ async function updateSVG() {
 
         paths.push(path);
     });
+    const width = Math.round((maxX - minX) * 100)/100;
+    const height = Math.round((maxY - minY) * 100)/100;
 
     // Handle accessibility title
     const id = `SvgTitle-${crypto.randomUUID()}`;
@@ -401,11 +403,11 @@ async function updateSVG() {
     }
 
     // Add the paths to the SVG output
-    outputSvg.innerHTML += paths.map(path => path.toSVG()).join('');
+    outputSvg.innerHTML += paths.map(path => optimizePath(path.toSVG())).join('');
     outputSvg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-    outputSvg.setAttribute('viewBox', `${minX} ${minY} ${maxX - minX} ${maxY - minY}`);
-    outputSvg.setAttribute('width', maxX - minX);
-    outputSvg.setAttribute('height', maxY - minY);
+    outputSvg.setAttribute('viewBox', `${Math.round(minX * 100) / 100} ${Math.round(minY * 100) / 100} ${width} ${height}`);
+    outputSvg.setAttribute('width', width);
+    outputSvg.setAttribute('height', height);
 
     // Handle aria labelledby for accessibility
     // Doing this after other attributes to ensure consistent order
@@ -510,4 +512,11 @@ function showSourceCode(show) {
     codeOutputContainer.classList.toggle('hidden', !boolValue);
     viewSourceButton.setAttribute('aria-checked', boolValue);
     viewSourceButton.classList.toggle('alternate', boolValue);
+}
+
+function optimizePath(path) {
+    // Do a light optimization pass on the SVG path string
+    return path.replace(/\.00(\D)/g, '$1') // Remove .00 from coordinates
+               .replace(/(\.\d*?)0+(\D)/g, '$1$2') // Remove trailing zeros after decimal point from coordinates
+               .replace(/#([0-9a-fA-F])\1([0-9a-fA-F])\2([0-9a-fA-F])\3/g, '#$1$2$3'); // Convert #RRGGBB to #RGB if possible
 }
