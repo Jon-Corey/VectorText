@@ -26,7 +26,7 @@
     --theme-color-2: #FF5FA3;
     --theme-color-3: #B0B8FF;
 
-    --accent-color: var(--secondary-color);
+    --accent-color: var(--theme-color-2);
     --accent-color-alt: var(--secondary-color-alt);
 
     --button-color: #444444;
@@ -70,24 +70,12 @@
     --theme-color-2: #B0306F;
     --theme-color-3: #5A63D8;
 
-    --accent-color: var(--primary-color);
-    --accent-color-alt: var(--primary-color-alt);
-
     --button-color: #d2d2d2;
     --button-color-hover: #dddddd;
     --button-color-active: #c8c8c8;
 
     --light-only-display: unset;
     --dark-only-display: none;
-}
-
-* {
-    transition: background-color 0.2s ease-in-out,
-                border-color 0.2s ease-in-out;
-}
-
-p, span, a, li, label, h1, h2, h3, h4, h5, h6 {
-    transition: color 0.2s ease-in-out;
 }
 
 html {
@@ -144,7 +132,7 @@ a:hover {
 }
 
 .svg-icon {
-    height: 1rem;
+    height: 1em;
     width: auto;
     fill: currentColor;
     vertical-align: -0.125em;

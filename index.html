@@ -13,6 +13,7 @@
         <link rel="icon" href="/images/logo.png" type="image/png">
         <title>Vector Text: Convert Text to an SVG</title>
         <meta name="description" content="Convert text to SVG paths for reliable rendering across all platforms and tools.">
+        <link rel="canonical" href="https://vector-text.com/">
 
         <!-- Open Graph / Facebook -->
         <meta property="og:type" content="website">
@@ -58,21 +59,21 @@
                 <div class="form-container">
                     <div class="input-container">
                         <label for="text-input">Text</label>
-                        <button type="button" class="info-button"><i class="bi bi-info-circle"></i></button>
+                        <button type="button" class="info-button" aria-label="More information about the text input"><i class="bi bi-info-circle"></i></button>
                         <span class="tooltip">Enter the text you want to convert to an SVG.</span>
                         <textarea id="text-input" placeholder="Enter your text here..." rows="5"></textarea>
                     </div>
 
                     <div class="input-container">
                         <label for="font-select">Font</label>
-                        <button type="button" class="info-button"><i class="bi bi-info-circle"></i></button>
+                        <button type="button" class="info-button" aria-label="More information about the font input"><i class="bi bi-info-circle"></i></button>
                         <span class="tooltip">Choose the font to use for the SVG.</span>
                         <select id="font-select"></select>
                     </div>
 
                     <div class="input-container">
                         <label for="font-variant-select">Font Variant</label>
-                        <button type="button" class="info-button"><i class="bi bi-info-circle"></i></button>
+                        <button type="button" class="info-button" aria-label="More information about the font variant input"><i class="bi bi-info-circle"></i></button>
                         <span class="tooltip">Choose the font variant to use for the SVG. The number represents the font weight. The text represents the font style.</span>
                         <select id="font-variant-select"></select>
                     </div>
@@ -81,7 +82,7 @@
                 <div class="form-container">
                     <div class="input-container">
                         <label for="fill-color-input">Fill Color</label>
-                        <button type="button" class="info-button"><i class="bi bi-info-circle"></i></button>
+                        <button type="button" class="info-button" aria-label="More information about the fill color input"><i class="bi bi-info-circle"></i></button>
                         <span class="tooltip">Choose the color that the text should be.</span>
                         <div class="color-input-container">
                             <input type="color" id="fill-color-input" value="#000000">
@@ -92,14 +93,14 @@
                     <div class="input-container">
                         <input type="checkbox" id="kerning-checkbox" checked>
                         <label for="kerning-checkbox">Kerning</label>
-                        <button type="button" class="info-button"><i class="bi bi-info-circle"></i></button>
+                        <button type="button" class="info-button" aria-label="More information about the kerning input"><i class="bi bi-info-circle"></i></button>
                         <span class="tooltip">Enable or disable kerning. Kerning is the adjustment of space between specific characters (e.g. with kerning: AV vs. without kerning: A&hairsp;V). Not every font uses kerning.</span>
                     </div>
 
                     <div class="input-container">
                         <input type="checkbox" id="ligatures-checkbox" checked>
                         <label for="ligatures-checkbox">Ligatures</label>
-                        <button type="button" class="info-button"><i class="bi bi-info-circle"></i></button>
+                        <button type="button" class="info-button" aria-label="More information about the ligatures input"><i class="bi bi-info-circle"></i></button>
                         <span class="tooltip">Enable or disable ligatures. Ligatures are special characters that combine two or more letters into a single connected symbol (e.g. fi, fl). Not every font uses ligatures.</span>
                     </div>
 
@@ -107,13 +108,13 @@
                         <div class="input-container">
                             <input type="checkbox" id="wrap-checkbox">
                             <label for="wrap-checkbox">Wrap Text</label>
-                            <button type="button" class="info-button"><i class="bi bi-info-circle"></i></button>
+                            <button type="button" class="info-button" aria-label="More information about the wrap text input"><i class="bi bi-info-circle"></i></button>
                             <span class="tooltip">Enable or disabled text wrapping. If enabled, when the line is too long, it will wrap to the next line.</span>
                         </div>
 
                         <div class="input-container">
                             <label for="wrap-width-input">Wrap After x Characters</label>
-                            <button type="button" class="info-button"><i class="bi bi-info-circle"></i></button>
+                            <button type="button" class="info-button" aria-label="More information about the wrap width input"><i class="bi bi-info-circle"></i></button>
                             <span class="tooltip">Enter the number of characters after which the text should wrap.</span>
                             <input type="number" id="wrap-width-input" value="50" min="1">
                         </div>
@@ -122,7 +123,7 @@
                     <div class="input-container">
                         <input type="checkbox" id="accessibility-checkbox" checked>
                         <label for="accessibility-checkbox">Accessible Title</label>
-                        <button type="button" class="info-button"><i class="bi bi-info-circle"></i></button>
+                        <button type="button" class="info-button" aria-label="More information about the accessible title input"><i class="bi bi-info-circle"></i></button>
                         <span class="tooltip">Enable or disable the accessible title for the SVG. This title is used by screen readers to describe the content of the SVG to blind or visually impaired users.</span>
                     </div>
                 </div>
@@ -226,9 +227,9 @@
             <span>&copy; JonCorey.Dev <span id="current-year">2025</span></span>
         </footer>
 
-        <script src="/js/slimselect.min.js"></script>
-        <script src="/js/opentype.js"></script>
-        <script src="/js/prism.js" data-manual></script>
-        <script src="/js/app.js"></script>
+        <script defer src="/js/slimselect.min.js"></script>
+        <script defer src="/js/opentype.js"></script>
+        <script defer src="/js/prism.js" data-manual></script>
+        <script defer src="/js/app.js"></script>
     </body>
 </html>
