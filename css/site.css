@@ -410,7 +410,7 @@ pre[class*="language-"],
 code[class*="language-"]::selection,
 code[class*="language-"] *::selection,
 pre[class*="language-"] *::selection {
-    background: var(--button-color);
+    background: var(--border-color);
     color: inherit;
 }
 
