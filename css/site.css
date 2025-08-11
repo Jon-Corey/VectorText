@@ -29,20 +29,23 @@
     --accent-color: var(--theme-color-2);
     --accent-color-alt: var(--secondary-color-alt);
 
-    --button-color: #444444;
-    --button-color-hover: #4f4f4f;
-    --button-color-active: #3f3f3f;
+    --button-color: #1a1a1a;
+    --button-color-hover: #222222;
+    --button-color-active: #3a3a3a;
 
     --yellow: #fffb8c;
     --green: #00b755;
     --red: #dc3545;
     --blue: #3456ff;
 
-    --border-color: var(--button-color);
+    --border-color: #444444;
     --border-width: 1px;
     --border-style: solid;
     --border-radius: 0.5rem;
     --border: var(--border-width) var(--border-style) var(--border-color);
+
+    --shadow-color: #000000;
+    --shadow: 0 2px 8px var(--shadow-color);
 
     --primary-gradient: linear-gradient(145deg, var(--primary-color),  var(--secondary-color));
     --secondary-gradient: linear-gradient(145deg, var(--primary-color-alt),  var(--secondary-color-alt));
@@ -58,21 +61,25 @@
 .light {
     color-scheme: light;
 
-    --background-color: #fafafa;
-    --secondary-background-color: #eaeaea;
-    --tertiary-background-color: #f2f2f2;
+    --background-color: #f5f5f5;
+    --secondary-background-color: #ffffff;
+    --tertiary-background-color: #ffffff;
 
-    --font-color: #121212;
-    --secondary-font-color: #222222;
-    --tertiary-font-color: #000000;
+    --font-color: #232323;
+    --secondary-font-color: #3a3a3a;
+    --tertiary-font-color: #6a6a6a;
 
     --theme-color-1: #2A3DBB;
     --theme-color-2: #B0306F;
     --theme-color-3: #5A63D8;
 
-    --button-color: #d2d2d2;
-    --button-color-hover: #dddddd;
-    --button-color-active: #c8c8c8;
+    --button-color: #fafafa;
+    --button-color-hover: #eaeaea;
+    --button-color-active: #dddddd;
+
+    --border-color: #cccccc;
+
+    --shadow-color: #cccccc;
 
     --light-only-display: unset;
     --dark-only-display: none;
@@ -118,7 +125,7 @@ hr {
 
 a {
     color: var(--accent-color);
-    text-decoration: none;
+    text-underline-offset: 0.125rem;
 }
 
 a:hover {
@@ -145,7 +152,7 @@ button, .button {
     background-color: var(--button-color);
     color: var(--font-color);
     text-decoration: none;
-    border: none;
+    border: var(--border);
     border-radius: var(--border-radius);
     padding: 0.5rem 0.75rem;
     cursor: pointer;
@@ -156,12 +163,12 @@ button, .button {
 
 button:hover, .button:hover {
     background-color: var(--button-color-hover);
-    color: var(--secondary-font-color);
+    color: var(--font-color);
 }
 
 button:active, .button:active {
     background-color: var(--button-color-active);
-    color: var(--tertiary-font-color);
+    color: var(--font-color);
 }
 
 button:disabled, .button:disabled {
@@ -205,6 +212,7 @@ button.primary, .button.primary {
 
 .info-button, .info-button:hover, .info-button:active {
     background-color: transparent;
+    border: none;
     color: inherit;
     cursor: pointer;
     padding: 0;
@@ -296,9 +304,10 @@ textarea {
 header {
     margin: 1rem 0;
     padding: 1rem;
-    background-color: var(--secondary-background-color);
+    background-color: var(--tertiary-background-color);
     border: var(--border);
     border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -350,6 +359,7 @@ footer hr {
     color: var(--secondary-light-font-color);
     background: var(--primary-gradient);
     border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
 }
 
 .hero h2 {
@@ -364,15 +374,19 @@ footer hr {
     width: 100%;
     height: 20rem;
     padding: 1rem;
-    background-color: var(--background-color);
+    background-color: var(--tertiary-background-color);
     border: var(--border);
     border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
     margin-bottom: 1rem;
+    transition: background-color 0.2s ease-in-out;
 }
 
 #code-output-container {
+    background-color: var(--tertiary-background-color);
     border: var(--border);
     border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
     padding: 1rem;
     margin-bottom: 1rem;
     white-space: pre-wrap;
@@ -415,11 +429,12 @@ pre[class*="language-"] *::selection {
 /* Cards */
 
 .card {
-    background-color: var(--secondary-background-color);
+    background-color: var(--tertiary-background-color);
     border: var(--border);
     border-radius: var(--border-radius);
     padding: 1rem;
     margin-bottom: 1rem;
+    box-shadow: var(--shadow);
 }
 
 .card h3 {
