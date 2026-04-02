@@ -29,18 +29,18 @@ const viewSourceButton = document.getElementById('view-source-button');
 
 // Initialize Form From Local Storage Values
 
-textInput.value = localStorage.getItem('text') || '';
-fillColorInput.value = localStorage.getItem('fillColor') || '#000000';
+textInput.value = localStorage.getItem('text') ?? '';
+fillColorInput.value = localStorage.getItem('fillColor') ?? '#000000';
 if (fillColorText) {
     fillColorText.innerText = fillColorInput.value;
 }
-kerningCheckbox.checked = localStorage.getItem('kerning') || 'true' === 'true';
-ligaturesCheckbox.checked = localStorage.getItem('ligatures') || 'true' === 'true';
-wrapCheckbox.checked = localStorage.getItem('wrap') || 'false' === 'true';
-wrapWidthInput.value = localStorage.getItem('wrapWidth') || 50;
-accessibilityCheckbox.checked = localStorage.getItem('accessibility') || 'true' === 'true';
+kerningCheckbox.checked = (localStorage.getItem('kerning') ?? 'true') === 'true';
+ligaturesCheckbox.checked = (localStorage.getItem('ligatures') ?? 'true') === 'true';
+wrapCheckbox.checked = (localStorage.getItem('wrap') ?? 'false') === 'true';
+wrapWidthInput.value = localStorage.getItem('wrapWidth') ?? 50;
+accessibilityCheckbox.checked = (localStorage.getItem('accessibility') ?? 'true') === 'true';
 
-const showSource = localStorage.getItem('showSource') || 'false' === 'true';
+const showSource = (localStorage.getItem('showSource') ?? 'false') === 'true';
 showSourceCode(showSource);
 
 // Handle Theme
