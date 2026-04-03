@@ -8,6 +8,8 @@ What Vector Text does is take the text and font selection and converts that text
 
 You can check out Vector Text at [vector-text.com](https://vector-text.com).
 
+![Bold white text reading 'Vector Text' on a blue-to-pink gradient background, with the right half cut away to reveal an outlined, grid-based vector version beneath.](/images/card.png)
+
 ## Reporting Issues
 
 If you've found an issue, you can report it by going to the Issues tab on this page and clicking "New Issue". Select "Bug/Issue Report" and fill out the form. Make sure to include lots of detail so that we can find the issue and fix it.
